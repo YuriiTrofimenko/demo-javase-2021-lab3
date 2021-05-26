@@ -18,21 +18,18 @@ public class Lab3 {
      */
     public static void main(String[] args) {
         
-        System.out.println("Input a natural number:");
-        Scanner sc = new Scanner(System.in);
-        try {
-            int x = sc.nextInt();
-            if (x >= 0) {
-                if (x % 2 == 0) {
-                    System.out.println(" jest liczbą parzystą");
-                } else {
-                    System.out.println(" jest liczbą nieparzystą");
-                }
-            } else {
-                System.out.println("x must be equals or greather than 0");
+        double a = Double.valueOf(args[0]);
+        double b = Double.valueOf(args[1]);
+        double x = Double.MIN_VALUE;
+        while (x <= Double.MAX_VALUE) {
+            if ( (a * x + b < 0.001)) {
+                System.out.printf("x = %.3f", x);
+                System.exit(0);
             }
-        } catch (Exception ex) {
-            System.out.println("Wrong number format");
+            x += 0.001;
         }
+        System.out.println("x not found");
+        // x = - b / a
     }
+    /*(a * x < Double.MAX_VALUE) && (a * x > Double.MIN_VALUE) && (a * x + b < Double.MAX_VALUE)&& (a * x + b > Double.MIN_VALUE) &&*/
 }
