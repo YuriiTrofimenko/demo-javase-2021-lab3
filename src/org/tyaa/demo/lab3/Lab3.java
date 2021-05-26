@@ -17,19 +17,23 @@ public class Lab3 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        double a = Double.valueOf(args[0]);
-        double b = Double.valueOf(args[1]);
-        double x = Double.MIN_VALUE;
-        while (x <= Double.MAX_VALUE) {
-            if ( (a * x + b < 0.001)) {
-                System.out.printf("x = %.3f", x);
-                System.exit(0);
+        int maxCount = 100;
+        int k = -50;
+        int l = 50;
+        int evenSum = 0;
+        int oddSum = 0;
+        for (int i = 0; i <= maxCount; i++) {
+            int x = (int) (k + (l + 1 - k) * Math.random());
+            // System.out.print("x = " + x + " ");
+            if (x % 2 == 0) {
+                // System.out.println(" jest liczbą parzystą");
+                evenSum += x;
+            } else {
+                // System.out.println(" jest liczbą nieparzystą");
+                oddSum += x;
             }
-            x += 0.001;
         }
-        System.out.println("x not found");
-        // x = - b / a
+        System.out.println("even sum = " + evenSum);
+        System.out.println("odd sum = " + oddSum);
     }
-    /*(a * x < Double.MAX_VALUE) && (a * x > Double.MIN_VALUE) && (a * x + b < Double.MAX_VALUE)&& (a * x + b > Double.MIN_VALUE) &&*/
 }
